@@ -4,8 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
 @Database(entities = [TodoData::class], version = 1, exportSchema = false)
+//Convert object to string- vice versa
+@TypeConverters(Converter::class)
 abstract class TodoDatabase : RoomDatabase() {
 
     abstract fun todoDoa(): TodoDao
