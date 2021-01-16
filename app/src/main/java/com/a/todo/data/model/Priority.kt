@@ -1,4 +1,4 @@
-package com.a.todo.data
+package com.a.todo.data.model
 
 enum class Priority {
     HIGH,
