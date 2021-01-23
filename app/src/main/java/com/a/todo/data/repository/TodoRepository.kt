@@ -6,7 +6,7 @@ import com.a.todo.data.model.TodoData
 
 class TodoRepository (private val todoDao: TodoDao){
 
-    val getAllData: LiveData<List<TodoDao>> =todoDao.getAllData()
+    val getAllData: LiveData<List<TodoData>> = todoDao.getAllData()
 
     suspend fun insertData(todoData: TodoData){
         todoDao.insertData(todoData)
