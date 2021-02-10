@@ -11,11 +11,14 @@ import com.a.todo.R
 import com.a.todo.data.model.Priority
 import com.a.todo.data.model.TodoData
 import com.a.todo.data.viewmodel.TodoViewModel
+import com.a.todo.fragments.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 
 class AddFragment : Fragment() {
 
     private val mTodoViewModel : TodoViewModel by viewModels()
+    private val sharedViewModel : SharedViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,13 +49,13 @@ class AddFragment : Fragment() {
         val mPriority = priority_spinner.selectedItem.toString()
         val mDescription = description_et.text.toString()
 
-        val validation = verifyDataFromUser(mTitle, mDescription)
+        val validation = sharedViewModel.verifyDataFromUser(mTitle, mDescription)
 
         if (validation){
             val newData = TodoData(
                 0,
                 mTitle,
-                parsPriority(mPriority),
+                sharedViewModel.parsPriority(mPriority),
                 mDescription
             )
             mTodoViewModel.insertData(newData)
@@ -62,18 +65,5 @@ class AddFragment : Fragment() {
         }
     }
 
-    private fun verifyDataFromUser(mTitle: String, mDescription: String): Boolean {
-        return if (TextUtils.isEmpty(mTitle) || TextUtils.isEmpty(mDescription)){
-            false
-        } else !(mTitle.isEmpty() || mDescription.isEmpty())
-    }
 
-    private fun parsPriority(priority: String): Priority{
-        return when (priority) {
-                "High Priority" -> {Priority.HIGH}
-                "Medium Priority" -> {Priority.MEDIUM}
-                "Low Priority" -> {Priority.LOW}
-                else -> Priority.LOW
-            }
-    }
 }
