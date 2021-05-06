@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
+            android:id="@+id/priority_indicator"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginTop="16dp"
@@ -36,7 +36,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:text="TextView"
+            android:text="Message Title"
             android:textStyle="bold"
             android:textSize="20sp"
             android:textColor="@color/darkGrey"
@@ -55,7 +55,7 @@
             android:layout_marginBottom="16dp"
             android:maxLength="300"
             android:maxLines="10"
-            android:text="TextView"
+            android:text="Some random description"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.046"
