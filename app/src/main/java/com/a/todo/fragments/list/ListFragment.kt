@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.a.todo.R
 import com.a.todo.data.viewmodel.TodoViewModel
 import com.a.todo.databinding.FragmentListBinding
+import com.a.todo.fragments.SharedViewModel
 
 class ListFragment : Fragment() {
     private var _binding: FragmentListBinding? = null
@@ -16,6 +17,7 @@ class ListFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     private val todoViewModel: TodoViewModel by viewModels()
+    private val shareViewModel: SharedViewModel by viewModels()
 
     private val adapter: ListAdapter by lazy { ListAdapter() }
 
@@ -29,7 +31,14 @@ class ListFragment : Fragment() {
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         todoViewModel.getAllData.observe(viewLifecycleOwner, {
-            data -> adapter.setData(data)
+
+            data ->
+                adapter.setData(data)
+                shareViewModel.checkIfDatabaseIsEmpty(data)
+        })
+
+        shareViewModel.emptyDatabase.observe(viewLifecycleOwner, {
+            showEmptyDatabaseView(it )
         })
 
         binding.floatingActionButton.setOnClickListener{
@@ -38,6 +47,17 @@ class ListFragment : Fragment() {
 
         setHasOptionsMenu(true)
         return  binding.root;
+    }
+
+    private fun showEmptyDatabaseView(emptyDatabase: Boolean) {
+        if (emptyDatabase){
+            binding.noDataImageView.visibility = View.VISIBLE
+            binding.noDataTextView.visibility = View.VISIBLE
+        }else{
+
+            binding.noDataImageView.visibility = View.INVISIBLE
+            binding.noDataTextView.visibility = View.INVISIBLE
+        }
     }
 
 
