@@ -1,14 +1,12 @@
 package com.a.todo.fragments.add
 
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.a.todo.R
-import com.a.todo.data.model.Priority
 import com.a.todo.data.model.TodoData
 import com.a.todo.data.viewmodel.TodoViewModel
 import com.a.todo.fragments.SharedViewModel

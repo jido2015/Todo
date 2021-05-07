@@ -10,7 +10,7 @@
 
 
     <EditText
-        android:id="@+id/current_title_et"
+        android:id="@+id/current_phone_txt"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:paddingLeft="20dp"
@@ -37,11 +37,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/current_title_et"
+        app:layout_constraintTop_toBottomOf="@+id/current_phone_txt"
         android:paddingRight="24dp" />
 
     <EditText
-        android:id="@+id/current_description_et"
+        android:id="@+id/currentNameTxt"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:ems="10"

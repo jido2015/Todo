@@ -16,13 +16,35 @@
         android:paddingLeft="20dp"
         android:paddingStart="20dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/title"
+        android:inputType="phone"
+        android:hint="Phone Number"
         android:background="@drawable/custom_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+
+        android:id="@+id/description_et"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:gravity="top|start"
+        android:hint="Name"
+        android:inputType="textMultiLine"
+        android:paddingStart="24dp"
+        android:paddingLeft="24dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/title_et"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        />
 
     <Spinner
         android:paddingLeft="20dp"
@@ -33,30 +55,10 @@
         android:layout_height="60dp"
         android:layout_marginTop="8dp"
         android:entries="@array/priority"
+        android:paddingRight="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/description_et"
         android:background="@drawable/custom_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_et"
-        android:paddingRight="24dp" />
-
-    <EditText
-        android:id="@+id/description_et"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:ems="10"
-        android:layout_marginTop="8dp"
-        android:hint="@string/description"
-        android:gravity="top|start"
-        android:background="@drawable/custom_input"
-        android:paddingTop="16dp"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/priority_spinner"
-        android:paddingLeft="24dp"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"/>
+        app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
